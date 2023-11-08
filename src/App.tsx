@@ -1,21 +1,32 @@
-import Home from "./pages/Home"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
-import "./styles/style.scss"
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import { useContext } from "react"
-import { AuthContext } from "./context/AuthContext"
+import { ReactNode } from "react";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import "./styles/style.scss";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContext";
+
+interface ProtectedRouteProps {
+  children: ReactNode;
+}
 
 function App() {
-  const { currentUser } = useContext(AuthContext)
+  const authContext = useContext(AuthContext);
 
-  const ProtectedRoute = ({ children }) => {
+  if (!authContext) {
+    // handle the case where AuthContext is undefined
+    throw new Error("AuthContext is undefined");
+  }
+
+  const { currentUser } = authContext;
+  const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
     if (!currentUser) {
-      return <Navigate to="/login" />
+      return <Navigate to="/login" />;
     }
 
-    return children
-  }
+    return children;
+  };
 
   return (
     <BrowserRouter>
@@ -34,7 +45,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

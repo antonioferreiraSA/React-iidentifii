@@ -22,13 +22,13 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const [currentUser, setCurrentUser] = useState<any | null>(null);
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, user => {
+    const unSubscribe = onAuthStateChanged(auth, user => {
       setCurrentUser(user);
       console.log(user);
     });
 
     return () => {
-      unsub();
+      unSubscribe();
     };
   }, []);
 
