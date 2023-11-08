@@ -28,7 +28,7 @@ npm run dev
 one you have successfully started the Server you should get a message like this on your terminal 
 ## open Link
 you can go to  your browser to view the site on your localhost
--   [(http://localhost:3000)](http://localhost:3000) 
+-   [(http://localhost:5173/)](http://localhost:5173/) 
 you should be directed to a login screen 
 ![alt text](/public//Readme-Images//5.png)
 ## if you are a new user please click the register button ,like shown above
@@ -39,7 +39,7 @@ then please create an account Note:please upload image of yourself as its requir
   ![alt text](/public//Readme-Images//8.png)
   ## for you to test the realtime chatting functionality 
 
-  please open a new incognito tab and open [(http://localhost:3000)](http://localhost:3000)   and you can view it in a phone frame by inspect element and choose a device size
+  please open a new incognito tab and open [(http://localhost:5173/)](http://localhost:5173/)   and you can view it in a phone frame by inspect element and choose a device size
   ![alt text](/public//Readme-Images//9.png)
 
   Then create a new Account with a different Name and email and avator
