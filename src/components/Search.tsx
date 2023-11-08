@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   collection,
   query,
@@ -22,20 +22,23 @@ const Search = () => {
   const handleSearch = async () => {
     const q = query(
       collection(db, "users"),
-      where("displayName", "==", username)
+      where("displayName", "==", username),
     );
 
     try {
       const querySnapshot = await getDocs(q);
-      querySnapshot.forEach((doc) => {
+      querySnapshot.forEach(doc => {
         setUser(doc.data());
       });
     } catch (err) {
       setErr(true);
     }
   };
+  useEffect(() => {
+    handleSearch();
+  }, [username]);
 
-  const handleKey = (e) => {
+  const handleKey = e => {
     e.code === "Enter" && handleSearch();
   };
 
@@ -74,16 +77,17 @@ const Search = () => {
     } catch (err) {}
 
     setUser(null);
-    setUsername("")
+    setUsername("");
   };
   return (
     <div className="search">
       <div className="searchForm">
+        <i className="searchForm">🔍</i>
         <input
           type="text"
           placeholder="Find a user"
           onKeyDown={handleKey}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={e => setUsername(e.target.value)}
           value={username}
         />
       </div>
