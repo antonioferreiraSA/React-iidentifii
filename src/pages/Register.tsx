@@ -152,6 +152,7 @@ const Register = () => {
             <img src={Add} alt="" />
             <span>Add an avatar</span>
           </label>
+          <span> Note: Image is required</span>
           {errors.file && <span>{errors.file}</span>}
           <button
             disabled={
