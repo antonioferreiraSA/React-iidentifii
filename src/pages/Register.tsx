@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Add from "../images/addAvatar.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
@@ -17,7 +17,7 @@ const Register = () => {
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const validateDisplayName = (value: any) => {
     if (value.trim() === "") {
       setErrors({ ...errors, displayName: "Display name is required" });
@@ -25,7 +25,7 @@ const Register = () => {
       setErrors({ ...errors, displayName: "" });
     }
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const validateEmail = (value: any) => {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!emailPattern.test(value)) {
@@ -34,7 +34,7 @@ const Register = () => {
       setErrors({ ...errors, email: "" });
     }
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const validatePassword = (value: any) => {
     if (value.length < 8) {
       setErrors({
@@ -45,7 +45,7 @@ const Register = () => {
       setErrors({ ...errors, password: "" });
     }
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const validateFile = (file: any) => {
     if (!file) {
       setErrors({ ...errors, file: "Please upload an avatar" });
@@ -53,7 +53,7 @@ const Register = () => {
       setErrors({ ...errors, file: "" });
     }
   };
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
@@ -152,6 +152,7 @@ const Register = () => {
             <img src={Add} alt="" />
             <span>Add an avatar</span>
           </label>
+          <span> Note: Image is required</span>
           {errors.file && <span>{errors.file}</span>}
           <button
             disabled={

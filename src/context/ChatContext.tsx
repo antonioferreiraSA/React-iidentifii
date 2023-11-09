@@ -4,7 +4,8 @@ import { AuthContext } from "./AuthContext";
 
 interface Action {
   type: string;
-  payload: any; // replace 'any' with the actual type if you have one
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  payload: any;
 }
 
 export const INITIAL_STATE = {
@@ -14,7 +15,8 @@ export const INITIAL_STATE = {
 
 interface ChatContextType {
   data: typeof INITIAL_STATE;
-  dispatch: React.Dispatch<any>; // replace 'any' with the actual action type if you have one
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: React.Dispatch<any>;
 }
 
 interface ChatContextProviderProps {

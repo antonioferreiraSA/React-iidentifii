@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Img from "../images/img.png";
-import Attach from "../images/attach.png";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import {
@@ -28,6 +27,7 @@ const Input = () => {
       const uploadTask = uploadBytesResumable(storageRef, img);
 
       uploadTask.on(
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         error => {
           //TODO:Handle Error
         },
