@@ -12,9 +12,16 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import { AuthContext } from "../context/AuthContext";
+
+interface UserData {
+  uid: string;
+  displayName: string;
+  photoURL: string;
+}
+
 const Search = () => {
   const [username, setUsername] = useState("");
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<UserData | null>(null);
   const [err, setErr] = useState(false);
 
   const { currentUser } = useContext(AuthContext);
@@ -28,7 +35,8 @@ const Search = () => {
     try {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach(doc => {
-        setUser(doc.data());
+        const userData = doc.data() as UserData;
+        setUser(userData);
       });
     } catch (err) {
       setErr(true);
@@ -45,9 +53,11 @@ const Search = () => {
   const handleSelect = async () => {
     //check whether the group(chats in firestore) exists, if not create
     const combinedId =
-      currentUser.uid > user?.uid
-        ? currentUser.uid + user?.uid
-        : user?.uid + currentUser.uid;
+      currentUser.uid && user?.uid
+        ? currentUser.uid + user.uid
+        : user?.uid
+        ? user.uid + currentUser.uid
+        : "";
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
 
