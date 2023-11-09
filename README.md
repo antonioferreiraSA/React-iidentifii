@@ -6,6 +6,9 @@
 -  [Firebase  Storage](https://firebase.google.com/docs/storage)
 -   [npm (package manger)](https://www.npmjs.com/)
 -   [Netlify (Deployment)](https://yarnpkg.com/)
+  ## Live link to the repo
+  [Demo]([https://create-react-app.dev/](https://velvety-malasada-697a7d.netlify.app/))
+  
 
 ## Node Version v18
 if you have nvm run this command from the root to use the same node version i am using 
