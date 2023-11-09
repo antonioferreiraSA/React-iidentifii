@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import Logo from "../images/iiDentifii-Logo.png";
-import Header from "../components/Header/Header";
 
 const Login = () => {
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const email = e.target[0].value;

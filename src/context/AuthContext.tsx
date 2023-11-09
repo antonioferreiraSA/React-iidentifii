@@ -19,6 +19,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(
 );
 
 export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [currentUser, setCurrentUser] = useState<any | null>(null);
 
   useEffect(() => {
