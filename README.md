@@ -7,7 +7,7 @@
 -   [npm (package manger)](https://www.npmjs.com/)
 -   [Netlify (Deployment)](https://yarnpkg.com/)
   ## Live link to the repo
-  [Demo]([https://create-react-app.dev/](https://velvety-malasada-697a7d.netlify.app/))
+  - [Demo]([https://create-react-app.dev/](https://create-react-app.dev/](https://velvety-malasada-697a7d.netlify.app/))
   
 
 ## Node Version v18
